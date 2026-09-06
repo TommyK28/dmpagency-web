@@ -20,29 +20,39 @@
     --font-weight-600: 600;
     --font-weight-700: 700;
 
-    /* --- Fluid type range -------------------------------------
-       Viewport range the font sizes scale across, and how much
-       smaller each size gets at the mobile end (2px flat).
-    ------------------------------------------------------------ */
-    --fluid-min-width: 20rem; /* 320px – smallest supported mobile width */
-    --fluid-max-width: 64rem; /* 1024px – site-wide fluid type ceiling (independent of the header's own breakpoint) */
-    --fluid-step: 0.125rem; /* 2px difference between mobile and desktop size */
-    --fluid-progress: calc(
-        (100vw - var(--fluid-min-width)) / (var(--fluid-max-width) - var(--fluid-min-width))
-    );
-
-    /* --- Font sizes -----------------------------------
-       clamp(mobile, fluid, desktop) – desktop value unchanged,
-       mobile value is desktop minus --fluid-step (2px).
-    ----------------------------------------------------- */
-    --font-size-100: clamp(1rem, calc(1rem + var(--fluid-step) * var(--fluid-progress)), 1.125rem); /* 16px -> 18px */
-    --font-size-200: clamp(1.0625rem, calc(1.0625rem + var(--fluid-step) * var(--fluid-progress)), 1.1875rem); /* 17px -> 19px */
-    --font-size-300: clamp(1.125rem, calc(1.125rem + var(--fluid-step) * var(--fluid-progress)), 1.25rem); /* 18px -> 20px */
-    --font-size-400: clamp(1.25rem, calc(1.25rem + var(--fluid-step) * var(--fluid-progress)), 1.375rem); /* 20px -> 22px */
-    --font-size-500: clamp(1.375rem, calc(1.375rem + var(--fluid-step) * var(--fluid-progress)), 1.5rem); /* 22px -> 24px */
-    --font-size-600: clamp(1.6875rem, calc(1.6875rem + var(--fluid-step) * var(--fluid-progress)), 1.8125rem); /* 27px -> 29px */
-    --font-size-700: clamp(1.75rem, calc(1.75rem + var(--fluid-step) * var(--fluid-progress)), 1.875rem); /* 28px -> 30px */
-    --font-size-800: clamp(2rem, calc(2rem + var(--fluid-step) * var(--fluid-progress)), 2.125rem); /* 32px -> 34px */
+    /* --- Fluid font sizes ---------------------------------- */
+    --font-size-100: clamp(1rem, 0.9432rem + 0.2841vw, 1.125rem); /* 16–18px */
+    --font-size-200: clamp(
+        1.0625rem,
+        1.0057rem + 0.2841vw,
+        1.1875rem
+    ); /* 17–19px */
+    --font-size-300: clamp(
+        1.125rem,
+        1.0682rem + 0.2841vw,
+        1.25rem
+    ); /* 18–20px */
+    --font-size-400: clamp(
+        1.25rem,
+        1.1932rem + 0.2841vw,
+        1.375rem
+    ); /* 20–22px */
+    --font-size-500: clamp(
+        1.375rem,
+        1.3182rem + 0.2841vw,
+        1.5rem
+    ); /* 22–24px */
+    --font-size-600: clamp(
+        1.6875rem,
+        1.6307rem + 0.2841vw,
+        1.8125rem
+    ); /* 27–29px */
+    --font-size-700: clamp(
+        1.75rem,
+        1.6932rem + 0.2841vw,
+        1.875rem
+    ); /* 28–30px */
+    --font-size-800: clamp(2rem, 1.9432rem + 0.2841vw, 2.125rem); /* 32–34px */
 
     /* --- Line heights ---------------------------------- */
     --line-height-100: 1;

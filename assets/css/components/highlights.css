@@ -1,0 +1,89 @@
+/* --------------------------------------------------------------------------
+   HIGHLIGHTS
+-------------------------------------------------------------------------- */
+.highlights__title {
+    font-size: var(--text-heading-xl);
+    font-weight: var(--font-weight-emphasis);
+    text-align: center;
+}
+
+.highlights__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: var(--space-300);
+    margin-block-start: var(--space-600);
+}
+
+.highlights__column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-300);
+    min-width: 0;
+    aspect-ratio: 366 / 894;
+}
+
+.highlights__image-wrap {
+    flex: none;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+}
+
+.highlights__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 366 / 288;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.highlights__image--downhill {
+    aspect-ratio: 366 / 523;
+}
+
+.highlights__image--walking {
+    aspect-ratio: 366 / 499;
+}
+
+.highlights__image--mountains {
+    aspect-ratio: 366 / 440;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .highlights__image-wrap:hover .highlights__image {
+        transform: scale(1.08);
+    }
+}
+
+.highlights__card {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-200);
+    padding: clamp(1.25rem, 0.75rem + 1vw, 1.875rem); /* 20-30px */
+    border-radius: var(--radius-card);
+    background-color: var(--color-brand);
+    color: var(--color-white);
+    text-align: center;
+}
+
+.highlights__card-title {
+    font-size: clamp(1.625rem, 1.5625rem + 0.3125vw, 1.875rem); /* 26–30px */
+    overflow-wrap: break-word;
+}
+
+.highlights__card-text {
+    font-size: clamp(1rem, 0.975rem + 0.125vw, 1.125rem); /* 16–18px */
+}
+
+.highlights__cta {
+    display: flex;
+    justify-content: center;
+    margin-block-start: var(--space-600);
+}
+
+@media (max-width: 38rem) {
+    .highlights__column {
+        aspect-ratio: auto;
+    }
+}

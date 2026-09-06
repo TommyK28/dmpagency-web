@@ -25,6 +25,7 @@
         <link rel="stylesheet" href="assets/css/layout.css" />
         <link rel="stylesheet" href="assets/css/components/button.css" />
         <link rel="stylesheet" href="assets/css/components/header.css" />
+        <link rel="stylesheet" href="assets/css/components/highlights.css" />
     </head>
     <body>
         <header class="header">
@@ -46,7 +47,9 @@
                     aria-controls="primary-navigation"
                 >
                     <span class="header__toggle-icon" aria-hidden="true"></span>
-                    <span class="header__toggle-label visually-hidden">Otevřít menu</span>
+                    <span class="header__toggle-label visually-hidden"
+                        >Otevřít menu</span
+                    >
                 </button>
 
                 <div class="header__panel" id="primary-navigation">
@@ -62,16 +65,24 @@
                                 <a class="header__nav-link" href="#">Akce</a>
                             </li>
                             <li class="header__nav-item">
-                                <a class="header__nav-link" href="#">Naše prodejny</a>
+                                <a class="header__nav-link" href="#"
+                                    >Naše prodejny</a
+                                >
                             </li>
                         </ul>
                     </nav>
 
                     <div class="header__actions">
-                        <a class="button button--primary header__cta" href="#">Kontaktujte nás</a>
+                        <a class="button button--primary header__cta" href="#"
+                            >Kontaktujte nás</a
+                        >
 
                         <div class="header__contact-icons">
-                            <a class="header__icon-link" href="mailto:info@dmpweb.cz" aria-label="Napište nám e-mail">
+                            <a
+                                class="header__icon-link"
+                                href="mailto:info@dmpweb.cz"
+                                aria-label="Napište nám e-mail"
+                            >
                                 <svg
                                     class="header__icon"
                                     viewBox="0 0 24 24"
@@ -87,7 +98,11 @@
                                 </svg>
                             </a>
 
-                            <a class="header__icon-link" href="tel:+420123456789" aria-label="Zavolejte nám">
+                            <a
+                                class="header__icon-link"
+                                href="tel:+420123456789"
+                                aria-label="Zavolejte nám"
+                            >
                                 <svg
                                     class="header__icon"
                                     viewBox="0 0 24 24"
@@ -108,6 +123,179 @@
                 </div>
             </div>
         </header>
+
+        <main>
+            <section
+                class="section highlights"
+                aria-labelledby="highlights-title"
+            >
+                <div class="container">
+                    <h1 class="highlights__title" id="highlights-title">
+                        Kdo maže, ten jede
+                    </h1>
+
+                    <div class="highlights__grid">
+                        <div class="highlights__column">
+                            <div class="highlights__image-wrap">
+                                <img
+                                    class="highlights__image highlights__image--downhill"
+                                    src="assets/images/mountain-bike-downhill.webp"
+                                    alt="Cyklista sjíždí na horském kole prudký kamenitý terén"
+                                    width="1280"
+                                    height="650"
+                                />
+                            </div>
+                            <div class="highlights__card">
+                                <h3 class="highlights__card-title">
+                                    Dobrodružství v přírodě
+                                </h3>
+                                <p class="highlights__card-text">
+                                    Objevujte krásy přírody na horských kolech,
+                                    která spojují výkon, pohodlí a ekologickou
+                                    šetrnost. Připravte se na nezapomenutelné
+                                    zážitky v terénu.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="highlights__column">
+                            <div class="highlights__image-wrap">
+                                <img
+                                    class="highlights__image"
+                                    src="assets/images/mountain-bike-forest.webp"
+                                    alt="Cyklista projíždí lesem v protisvětle"
+                                    width="1600"
+                                    height="900"
+                                />
+                            </div>
+                            <div class="highlights__card">
+                                <h3 class="highlights__card-title">
+                                    Nakupujte z pohodlí domova
+                                </h3>
+                                <p class="highlights__card-text">
+                                    Vyberte si své nové horské kolo snadno a
+                                    rychle. Náš e-shop nabízí široký sortiment,
+                                    detailní popisy a veškeré příslušenství pro
+                                    vaše cyklistické výpravy.
+                                </p>
+                            </div>
+                            <div class="highlights__image-wrap">
+                                <img
+                                    class="highlights__image"
+                                    src="assets/images/mountain-bike-detail.webp"
+                                    alt="Detail předního kola horského kola"
+                                    width="1600"
+                                    height="900"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="highlights__column">
+                            <div class="highlights__card">
+                                <h3 class="highlights__card-title">
+                                    Digitální cyklo pomocník
+                                </h3>
+                                <p class="highlights__card-text">
+                                    Díky našim digitálním nástrojům snadno
+                                    najdete kolo, které odpovídá vašim
+                                    požadavkům. Filtrujte podle velikosti,
+                                    terénu nebo designu a najděte přesně to, co
+                                    hledáte.
+                                </p>
+                            </div>
+                            <div class="highlights__image-wrap">
+                                <img
+                                    class="highlights__image highlights__image--walking"
+                                    src="assets/images/cyclist-walking-bike.webp"
+                                    alt="Muž vede městské kolo po ulici"
+                                    width="1600"
+                                    height="1068"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="highlights__column">
+                            <div class="highlights__card">
+                                <h3 class="highlights__card-title">
+                                    Staňte se odborníkem
+                                </h3>
+                                <p class="highlights__card-text">
+                                    Využijte naše bezplatné školení a návody,
+                                    jak se o své horské kolo správně starat.
+                                    Získáte cenné tipy od profesionálů, které
+                                    zlepší váš cyklistický zážitek.
+                                </p>
+                            </div>
+                            <div class="highlights__image-wrap">
+                                <img
+                                    class="highlights__image"
+                                    src="assets/images/city-bike-humboldt.webp"
+                                    alt="Kolo opřené o sloup u cedule Humboldt"
+                                    width="1600"
+                                    height="1194"
+                                />
+                            </div>
+                            <div class="highlights__image-wrap">
+                                <img
+                                    class="highlights__image"
+                                    src="assets/images/cyclist-city.webp"
+                                    alt="Dívka jede na kole v ulici"
+                                    width="1600"
+                                    height="1067"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="highlights__column">
+                            <div class="highlights__image-wrap">
+                                <img
+                                    class="highlights__image highlights__image--mountains"
+                                    src="assets/images/mountain-cyclists.webp"
+                                    alt="Dva cyklisté jedou na horských kolech po louce"
+                                    width="1600"
+                                    height="900"
+                                />
+                            </div>
+                            <div class="highlights__card">
+                                <h3 class="highlights__card-title">
+                                    Objevte nové příležitosti
+                                </h3>
+                                <p class="highlights__card-text">
+                                    Zapojte se do našeho partnerského programu a
+                                    vydělávejte tím, co vás baví. Nabízíme
+                                    podporu, školení a přístup k exkluzivním
+                                    nabídkám.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlights__cta">
+                        <a
+                            class="button button--secondary"
+                            href="#"
+                        >
+                            Více o nás
+                            <svg
+                                viewBox="0 0 24 24"
+                                width="20"
+                                height="20"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true"
+                            >
+                                <path d="m9 6 6 6-6 6" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
 
         <script src="assets/js/header.js" defer></script>
     </body>
