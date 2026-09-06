@@ -23,6 +23,92 @@
         <link rel="stylesheet" href="assets/css/reset.css" />
         <link rel="stylesheet" href="assets/css/base.css" />
         <link rel="stylesheet" href="assets/css/layout.css" />
+        <link rel="stylesheet" href="assets/css/components/button.css" />
+        <link rel="stylesheet" href="assets/css/components/header.css" />
     </head>
-    <body></body>
+    <body>
+        <header class="header">
+            <div class="container container--narrow header__inner">
+                <a class="header__logo" href="/" aria-label="DMP web – domů">
+                    <img
+                        class="header__logo-image"
+                        src="assets/images/dmpweb-logo.svg"
+                        alt=""
+                        width="258"
+                        height="66"
+                    />
+                </a>
+
+                <button
+                    class="header__toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="primary-navigation"
+                >
+                    <span class="header__toggle-icon" aria-hidden="true"></span>
+                    <span class="header__toggle-label visually-hidden">Otevřít menu</span>
+                </button>
+
+                <div class="header__panel" id="primary-navigation">
+                    <nav aria-label="Hlavní navigace">
+                        <ul class="header__nav-list">
+                            <li class="header__nav-item">
+                                <a class="header__nav-link" href="#">O nás</a>
+                            </li>
+                            <li class="header__nav-item">
+                                <a class="header__nav-link" href="#">Novinky</a>
+                            </li>
+                            <li class="header__nav-item">
+                                <a class="header__nav-link" href="#">Akce</a>
+                            </li>
+                            <li class="header__nav-item">
+                                <a class="header__nav-link" href="#">Naše prodejny</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="header__actions">
+                        <a class="button button--primary header__cta" href="#">Kontaktujte nás</a>
+
+                        <div class="header__contact-icons">
+                            <a class="header__icon-link" href="mailto:info@dmpweb.cz" aria-label="Napište nám e-mail">
+                                <svg
+                                    class="header__icon"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    aria-hidden="true"
+                                >
+                                    <path d="M3 5.5h18v13H3z" />
+                                    <path d="m3 6 9 7 9-7" />
+                                </svg>
+                            </a>
+
+                            <a class="header__icon-link" href="tel:+420123456789" aria-label="Zavolejte nám">
+                                <svg
+                                    class="header__icon"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M4.5 4h3.5l1.5 4.5-2 1.5a12 12 0 0 0 6 6l1.5-2 4.5 1.5v3.5c0 1.1-.9 2-2 2C9.5 21 3 14.5 3 6.5c0-1.1.9-2 2-2Z"
+                                    />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <script src="assets/js/header.js" defer></script>
+    </body>
 </html>

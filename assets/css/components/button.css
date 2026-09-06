@@ -1,0 +1,32 @@
+/* --------------------------------------------------------------------------
+   BUTTON
+-------------------------------------------------------------------------- */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-200);
+
+    padding-block: var(--space-200);
+    padding-inline: var(--space-500);
+    border-radius: var(--radius-pill);
+
+    font-family: var(--font-heading);
+    font-size: var(--text-button);
+    font-weight: var(--font-weight-emphasis);
+    line-height: var(--line-height-100);
+    white-space: nowrap;
+    text-decoration: none;
+
+    transition: filter var(--transition-base);
+}
+
+.button:hover {
+    filter: brightness(0.92);
+    text-decoration: none;
+}
+
+.button--primary {
+    background-color: var(--color-brand);
+    color: var(--color-white);
+}
