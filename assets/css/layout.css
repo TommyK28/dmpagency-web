@@ -1,0 +1,21 @@
+/* --------------------------------------------------------------------------
+  LAYOUT
+-------------------------------------------------------------------------- */
+.container {
+    --container-width: var(--layout-max-width);
+    --container-gutter: var(--space-300); /* 15px */
+
+    width: 100%;
+    max-width: var(--container-width);
+    margin-inline: auto;
+    padding-inline: var(--container-gutter);
+}
+
+.container--narrow {
+    --container-width: calc(var(--width-layout) + 2 * var(--container-gutter));
+}
+
+/* Section ----------------------------------------- */
+.section {
+    padding-block: var(--space-section-block);
+}

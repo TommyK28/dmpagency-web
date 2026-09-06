@@ -1,0 +1,62 @@
+/* --------------------------------------------------------------------------
+   BASE STYLES
+-------------------------------------------------------------------------- */
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: var(--font-weight-body);
+    line-height: var(--line-height-body);
+
+    color: var(--color-text);
+    background-color: var(--color-surface);
+}
+
+/* Typografie ----------------------------------------- */
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-heading);
+    line-height: var(--line-height-heading);
+    text-wrap: balance;
+}
+
+h1 {
+    font-size: var(--text-heading-xl);
+    font-weight: var(--font-weight-emphasis);
+}
+
+h2 {
+    font-size: var(--text-heading-md);
+}
+
+p {
+    text-wrap: pretty;
+}
+
+address {
+    font-style: normal;
+}
+
+/* Interactive elements ----------------------------------------- */
+a:hover {
+    text-decoration: underline;
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+/* Accessibility ----------------------------------------- */
+.visually-hidden:not(:focus):not(:active) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
