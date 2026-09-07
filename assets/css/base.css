@@ -42,8 +42,10 @@ address {
 }
 
 /* Interactive elements ----------------------------------------- */
-a:hover {
-    text-decoration: underline;
+a {
+    transition:
+        color var(--transition-base),
+        text-decoration-color var(--transition-base);
 }
 
 :focus-visible {

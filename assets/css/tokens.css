@@ -69,6 +69,7 @@
     --space-600: 1.875rem; /* 30px */
     --space-700: 2.1875rem; /* 35px */
     --space-800: 2.5rem; /* 40px */
+    --space-850: 3.125rem; /* 50px */
     --space-900: 3.75rem; /* 60px */
     --space-1000: 4.75rem; /* 76px */
     --space-1100: 5rem; /* 80px */
@@ -89,6 +90,7 @@
     /* --- Colors --------------------------------------------- */
     --color-brand: var(--color-orange);
     --color-text: var(--color-black);
+    --color-text-muted: var(--color-grey-500);
     --color-surface: var(--color-white);
     --color-surface-muted: var(--color-grey-100);
     --color-surface-sunken: var(--color-grey-200);
