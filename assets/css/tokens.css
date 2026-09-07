@@ -1,6 +1,6 @@
 :root {
     /* =========================================================
-       1. PRIMITIVY
+       1. PRIMITIVE TOKENS
     ========================================================= */
 
     /* --- Colors --------------------------------------------- */
@@ -100,11 +100,9 @@
     /* --- Fonts ---------------------------------------- */
     --font-heading: var(--font-family-poppins);
     --font-body: var(--font-family-arial);
-
     --font-weight-body: var(--font-weight-400);
     --font-weight-emphasis: var(--font-weight-600);
     --font-weight-heading: var(--font-weight-700);
-
     --text-body: var(--font-size-100); /* 18px */
     --text-nav: var(--font-size-300); /* 20px */
     --text-button: var(--font-size-300); /* 20px */

@@ -3,22 +3,29 @@
     if (!header) return;
 
     const toggle = header.querySelector(".header__toggle");
-    const toggleLabel = toggle.querySelector(".header__toggle-label");
+    const toggleLabel = header.querySelector(".header__toggle-label");
     const panel = header.querySelector(".header__panel");
     const logo = header.querySelector(".header__logo");
-    const siblings = Array.from(document.body.children).filter((el) => el !== header);
+    if (!toggle || !toggleLabel || !panel || !logo) return;
 
     const OPEN_LABEL = "Zavřít menu";
     const CLOSED_LABEL = "Otevřít menu";
-
-    const desktopQuery = window.matchMedia("(min-width: 60em)");
-    const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    // Keep this breakpoint in sync with header.css.
+    const desktopQuery = window.matchMedia("(width >= 60rem)");
+    const focusableSelector =
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    const inertStates = new Map();
+    let isOpen = false;
+    let previousOverflow = "";
 
     const getFocusableElements = () =>
-        [toggle, ...panel.querySelectorAll(focusableSelector)].filter((el) => el.offsetParent !== null);
+        [toggle, ...panel.querySelectorAll(focusableSelector)].filter(
+            (element) => !element.inert && element.getClientRects().length > 0,
+        );
 
-    const handleKeydown = (event) => {
+    function handleKeydown(event) {
         if (event.key === "Escape") {
+            event.preventDefault();
             closeNav();
             return;
         }
@@ -38,61 +45,86 @@
             event.preventDefault();
             first.focus();
         }
-    };
+    }
+
+    function setPanelState(open) {
+        toggle.setAttribute("aria-expanded", String(open));
+        toggleLabel.textContent = open ? OPEN_LABEL : CLOSED_LABEL;
+        panel.classList.toggle("header__panel--open", open);
+    }
 
     function openNav() {
-        toggle.setAttribute("aria-expanded", "true");
-        toggleLabel.textContent = OPEN_LABEL;
-        panel.classList.add("header__panel--open");
+        if (isOpen || desktopQuery.matches) return;
+        isOpen = true;
+        previousOverflow = document.body.style.overflow;
+
+        const backgroundElements = [
+            logo,
+            ...Array.from(document.body.children).filter(
+                (element) => element !== header,
+            ),
+        ];
+        backgroundElements.forEach((element) => {
+            inertStates.set(element, element.inert);
+            element.inert = true;
+        });
+
+        setPanelState(true);
         panel.inert = false;
-        logo.inert = true;
-        siblings.forEach((el) => (el.inert = true));
         document.body.style.overflow = "hidden";
         document.addEventListener("keydown", handleKeydown);
+        toggle.focus();
     }
 
     function closeNav({ restoreFocus = true } = {}) {
-        toggle.setAttribute("aria-expanded", "false");
-        toggleLabel.textContent = CLOSED_LABEL;
-        panel.classList.remove("header__panel--open");
-        panel.inert = true;
-        logo.inert = false;
-        siblings.forEach((el) => (el.inert = false));
-        document.body.style.overflow = "";
+        const wasOpen = isOpen;
+        isOpen = false;
+        setPanelState(false);
+        panel.inert = !desktopQuery.matches;
         document.removeEventListener("keydown", handleKeydown);
-        if (restoreFocus) toggle.focus();
+
+        if (wasOpen) {
+            inertStates.forEach((inert, element) => {
+                element.inert = inert;
+            });
+            inertStates.clear();
+            document.body.style.overflow = previousOverflow;
+            if (restoreFocus && !desktopQuery.matches) toggle.focus();
+        }
     }
 
-    function syncWithViewport(isDesktop) {
-        document.removeEventListener("keydown", handleKeydown);
-        toggle.setAttribute("aria-expanded", "false");
-        toggleLabel.textContent = CLOSED_LABEL;
-        panel.classList.remove("header__panel--open");
-        logo.inert = false;
-        siblings.forEach((el) => (el.inert = false));
-        document.body.style.overflow = "";
-        panel.inert = !isDesktop;
+    function syncWithViewport() {
+        const focusedElement = document.activeElement;
+        const focusWasInPanel = panel.contains(focusedElement);
+        closeNav({ restoreFocus: false });
+
+        if (desktopQuery.matches && focusedElement === toggle) {
+            panel.querySelector(focusableSelector)?.focus();
+        } else if (!desktopQuery.matches && focusWasInPanel) {
+            toggle.focus();
+        }
     }
 
     toggle.addEventListener("click", () => {
-        const isOpen = toggle.getAttribute("aria-expanded") === "true";
-        isOpen ? closeNav() : openNav();
+        if (isOpen) closeNav();
+        else openNav();
     });
 
-    panel.querySelectorAll(".header__nav-link").forEach((link) => {
-        link.addEventListener("click", () => {
-            if (!desktopQuery.matches) closeNav({ restoreFocus: false });
-        });
+    panel.addEventListener("click", (event) => {
+        if (event.target.closest("a[href]") && !desktopQuery.matches) {
+            closeNav();
+        }
     });
 
-    desktopQuery.addEventListener("change", (event) => syncWithViewport(event.matches));
-    syncWithViewport(desktopQuery.matches);
+    desktopQuery.addEventListener("change", syncWithViewport);
+    syncWithViewport();
 
     if ("ResizeObserver" in window) {
-        const headerObserver = new ResizeObserver((entries) => {
-            for (const entry of entries) {
-                header.style.setProperty("--header-height", `${entry.contentRect.height}px`);
-            }
+        const headerObserver = new ResizeObserver(() => {
+            header.style.setProperty(
+                "--header-height",
+                `${header.getBoundingClientRect().height}px`,
+            );
         });
         headerObserver.observe(header);
     }

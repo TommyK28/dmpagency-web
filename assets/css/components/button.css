@@ -6,24 +6,21 @@
     align-items: center;
     justify-content: center;
     gap: var(--space-200);
-
     padding-block: var(--space-200);
     padding-inline: var(--space-500);
     border-radius: var(--radius-pill);
-
     font-family: var(--font-heading);
     font-size: var(--text-button);
     font-weight: var(--font-weight-emphasis);
     line-height: var(--line-height-100);
     white-space: nowrap;
     text-decoration: none;
-
     transition: filter var(--transition-base);
 }
 
-.button:hover {
+.button:hover,
+.button:focus-visible {
     filter: brightness(0.92);
-    text-decoration: none;
 }
 
 .button--primary,
@@ -33,9 +30,15 @@
 }
 
 .button--secondary {
+    gap: var(--space-100);
     padding-block: var(--space-400);
     padding-inline: var(--space-700);
-    gap: var(--space-100);
     border-radius: 0;
     font-weight: var(--font-weight-heading);
+}
+
+.button__icon {
+    flex-shrink: 0;
+    width: var(--space-400);
+    height: var(--space-400);
 }

@@ -2,7 +2,7 @@
    HEADER
 -------------------------------------------------------------------------- */
 .header {
-    --header-toggle-size: 2.375rem; /* 44px */
+    --header-toggle-size: 2.375rem; /* 38px */
     --header-icon-bar-width: 1.5rem; /* 24px */
     --header-icon-bar-height: 0.125rem; /* 2px */
     --header-icon-bar-gap: 0.4375rem; /* 7px */
@@ -41,7 +41,6 @@
         ),
         var(--header-nav-link-max-size)
     );
-
     position: relative;
     z-index: 100;
     background-color: var(--color-surface);
@@ -58,13 +57,11 @@
 /* Logo ----------------------------------------- */
 .header__logo {
     display: inline-flex;
-    flex-shrink: 1;
     min-width: 0;
 }
 
 .header__logo-image {
     width: 100%;
-    display: block;
     height: var(--header-logo-height-mobile);
 }
 
@@ -73,20 +70,15 @@
     position: relative;
     z-index: 5;
     flex-shrink: 0;
-
     width: var(--header-toggle-size);
     height: var(--header-toggle-size);
-    border: none;
     border-radius: var(--radius-card);
-    background: transparent;
     color: var(--color-text);
-    cursor: pointer;
 }
 
 .header__toggle-icon,
 .header__toggle-icon::before,
 .header__toggle-icon::after {
-    content: "";
     position: absolute;
     inset: 0;
     margin: auto;
@@ -97,6 +89,11 @@
     transition:
         transform var(--transition-base),
         background-color var(--transition-base);
+}
+
+.header__toggle-icon::before,
+.header__toggle-icon::after {
+    content: "";
 }
 
 .header__toggle-icon::before {
@@ -124,16 +121,13 @@
     position: fixed;
     inset-block: var(--header-height) 0;
     inset-inline: 0;
-
     display: flex;
     flex-direction: column;
     gap: var(--space-600);
     overflow-y: auto;
     overscroll-behavior: contain;
-
     background-color: var(--color-surface);
     padding: var(--space-500) var(--space-300);
-
     opacity: 0;
     visibility: hidden;
     transform: translateX(100%);
@@ -157,9 +151,6 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-400);
-    list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
 .header__nav-link {
@@ -168,16 +159,11 @@
     font-size: var(--text-nav);
     font-weight: var(--font-weight-emphasis);
     color: var(--color-text);
-    text-decoration: solid underline transparent;
-    transition:
-        color var(--transition-base),
-        text-decoration-color var(--transition-base);
 }
 
 .header__nav-link:hover,
 .header__nav-link:focus-visible {
     color: var(--color-brand);
-    text-decoration: underline;
 }
 
 /* Actions (CTA + contact icons) ----------------------------------------- */
@@ -207,9 +193,9 @@
     transition: filter var(--transition-base);
 }
 
-.header__icon-link:hover {
+.header__icon-link:hover,
+.header__icon-link:focus-visible {
     filter: brightness(0.92);
-    text-decoration: none;
 }
 
 .header__icon {
@@ -218,7 +204,7 @@
 }
 
 /* Desktop ----------------------------------------- */
-@media (min-width: 60rem) {
+@media (width >= 60rem) {
     .header__toggle {
         display: none;
     }
@@ -259,14 +245,5 @@
 
     .header__cta {
         font-size: var(--header-nav-font-size);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .header__toggle-icon,
-    .header__toggle-icon::before,
-    .header__toggle-icon::after,
-    .header__panel {
-        transition-duration: 0.01ms;
     }
 }
