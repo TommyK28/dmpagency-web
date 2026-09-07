@@ -7,27 +7,29 @@
     --header-icon-bar-height: 0.125rem; /* 2px */
     --header-icon-bar-gap: 0.4375rem; /* 7px */
     --header-icon-gap: 0.53125rem; /* 8.5px */
-    --header-height: 5rem; /* 80px */
     --header-breakpoint: 60rem; /* 960px */
     --header-logo-height-mobile: 2.75rem; /* 44px */
     --header-logo-height-desktop: 4.125rem; /* 66px */
     --header-nav-link-min-size: 1rem; /* 16px */
     --header-nav-link-max-size: 1.25rem; /* 20px */
     --header-nav-gap-min: var(--space-500); /* 25px */
-    --header-nav-gap-max: var(--space-1100); /* 80px */
+    --header-nav-gap-max: var(--space-1200); /* 80px */
 
-    /* 25px -> 80px between --header-breakpoint (960px) and --layout-max-width (1920px) */
+    --header-height: calc(
+        var(--header-logo-height-mobile) + 2 * var(--space-400)
+    );
+
     --header-nav-gap: clamp(
         var(--header-nav-gap-min),
         calc(
             var(--header-nav-gap-min) +
                 (var(--header-nav-gap-max) - var(--header-nav-gap-min)) *
                 (100vw - var(--header-breakpoint)) /
-                (var(--layout-max-width) - var(--header-breakpoint))
+                (var(--width-viewport-max) - var(--header-breakpoint))
         ),
         var(--header-nav-gap-max)
-    );
-    /* 16px -> 20px between --header-breakpoint (960px) and --layout-max-width (1920px) */
+    ); /* 25px -> 80px */
+
     --header-nav-font-size: clamp(
         var(--header-nav-link-min-size),
         calc(
@@ -37,10 +39,10 @@
                         var(--header-nav-link-min-size)
                 ) *
                 (100vw - var(--header-breakpoint)) /
-                (var(--layout-max-width) - var(--header-breakpoint))
+                (var(--width-viewport-max) - var(--header-breakpoint))
         ),
         var(--header-nav-link-max-size)
-    );
+    ); /* 16px -> 20px */
     position: relative;
     z-index: 100;
     background-color: var(--color-surface);
@@ -134,7 +136,7 @@
     transition:
         transform var(--transition-base),
         opacity var(--transition-base),
-        visibility 0s linear var(--duration-300);
+        visibility 0s linear var(--duration-base);
 }
 
 .header__panel--open {
@@ -189,7 +191,7 @@
     height: var(--header-toggle-size);
     border-radius: var(--radius-circle);
     background-color: var(--color-brand);
-    color: var(--color-white);
+    color: var(--color-text-inverse);
     transition: filter var(--transition-base);
 }
 
@@ -199,12 +201,11 @@
 }
 
 .header__icon {
-    width: 1.25rem; /* 20px */
-    height: 1.25rem; /* 20px */
+    width: var(--size-icon-sm);
+    height: var(--size-icon-sm);
 }
 
-/* Desktop ----------------------------------------- */
-@media (width >= 60rem) {
+@media (min-width: 60rem) {
     .header__toggle {
         display: none;
     }

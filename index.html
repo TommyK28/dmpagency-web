@@ -74,14 +74,14 @@
                     </nav>
 
                     <div class="header__actions">
-                        <a class="button button--primary header__cta" href="#"
+                        <a class="button button--pill header__cta" href="#"
                             >Kontaktujte nás</a
                         >
 
                         <div class="header__contact-icons">
                             <a
                                 class="header__icon-link"
-                                href="mailto:info@dmpweb.cz"
+                                href="mailto:info@klima-classic.cz"
                                 aria-label="Napište nám e-mail"
                             >
                                 <svg
@@ -110,7 +110,7 @@
 
                             <a
                                 class="header__icon-link"
-                                href="tel:+420123456789"
+                                href="tel:+420281012612"
                                 aria-label="Zavolejte nám"
                             >
                                 <svg
@@ -138,7 +138,7 @@
             </div>
         </header>
 
-        <main class="page__main">
+        <main>
             <section
                 class="section highlights"
                 aria-labelledby="highlights-title"
@@ -152,7 +152,7 @@
                         <div class="highlights__column">
                             <div class="highlights__image-wrap">
                                 <img
-                                    class="highlights__image highlights__image--downhill"
+                                    class="highlights__image highlights__image--portrait-lg"
                                     src="assets/images/mountain-bike-downhill.webp"
                                     alt="Cyklista sjíždí na horském kole prudký kamenitý terén"
                                     width="1280"
@@ -221,7 +221,7 @@
                             </div>
                             <div class="highlights__image-wrap">
                                 <img
-                                    class="highlights__image highlights__image--walking"
+                                    class="highlights__image highlights__image--portrait-md"
                                     src="assets/images/cyclist-walking-bike.webp"
                                     alt="Muž vede městské kolo po ulici"
                                     width="1600"
@@ -265,10 +265,12 @@
                             </div>
                         </div>
 
-                        <div class="highlights__column">
+                        <div
+                            class="highlights__column highlights__column--wide"
+                        >
                             <div class="highlights__image-wrap">
                                 <img
-                                    class="highlights__image highlights__image--mountains"
+                                    class="highlights__image highlights__image--portrait-sm"
                                     src="assets/images/mountain-cyclists.webp"
                                     alt="Dva cyklisté jedou na horských kolech po louce"
                                     width="1600"
@@ -291,7 +293,7 @@
                     </div>
 
                     <div class="highlights__cta">
-                        <a class="button button--secondary" href="#">
+                        <a class="button button--square" href="#">
                             Více o nás
                             <svg
                                 class="button__icon"
@@ -407,17 +409,18 @@
                     class="container container--narrow footer__navigation-inner"
                 >
                     <nav class="footer__links" aria-label="Doplňková navigace">
-                        <section
-                            class="footer__link-group"
-                            aria-labelledby="footer-shop-title"
-                        >
+                        <div class="footer__link-group">
                             <h2
                                 class="footer__link-title"
                                 id="footer-shop-title"
                             >
                                 Vybíráme z e-shopu
                             </h2>
-                            <ul class="footer__link-list">
+                            <ul
+                                class="footer__link-list"
+                                aria-labelledby="footer-shop-title"
+                                role="list"
+                            >
                                 <li class="footer__link-item">
                                     <a class="footer__link" href="#"
                                         >Horská kola</a
@@ -439,19 +442,20 @@
                                     >
                                 </li>
                             </ul>
-                        </section>
+                        </div>
 
-                        <section
-                            class="footer__link-group"
-                            aria-labelledby="footer-interest-title"
-                        >
+                        <div class="footer__link-group">
                             <h2
                                 class="footer__link-title"
                                 id="footer-interest-title"
                             >
                                 Mohlo by vás zajímat
                             </h2>
-                            <ul class="footer__link-list">
+                            <ul
+                                class="footer__link-list"
+                                aria-labelledby="footer-interest-title"
+                                role="list"
+                            >
                                 <li class="footer__link-item">
                                     <a class="footer__link" href="#"
                                         >Naše prodejna</a
@@ -473,19 +477,20 @@
                                     >
                                 </li>
                             </ul>
-                        </section>
+                        </div>
 
-                        <section
-                            class="footer__link-group"
-                            aria-labelledby="footer-purchase-title"
-                        >
+                        <div class="footer__link-group">
                             <h2
                                 class="footer__link-title"
                                 id="footer-purchase-title"
                             >
                                 Vše o nákupu
                             </h2>
-                            <ul class="footer__link-list">
+                            <ul
+                                class="footer__link-list"
+                                aria-labelledby="footer-purchase-title"
+                                role="list"
+                            >
                                 <li class="footer__link-item">
                                     <a class="footer__link" href="#"
                                         >Jak objednat zboží</a
@@ -507,14 +512,14 @@
                                     >
                                 </li>
                             </ul>
-                        </section>
+                        </div>
                     </nav>
 
                     <div class="footer__location">
                         <img
                             class="footer__location-image"
                             src="assets/images/contact-team.webp"
-                            alt="Tým DMP agency v kanceláři"
+                            alt=""
                             width="545"
                             height="174"
                             loading="lazy"
@@ -551,12 +556,8 @@
 
                             <address class="footer__location-address">
                                 <a class="footer__location-link" href="#">
-                                    Kbelská 618/44<br
-                                        class="footer__location-break"
-                                    />
-                                    198 00 Praha 9 - Hloubětín<br
-                                        class="footer__location-break"
-                                    />
+                                    Kbelská 618/44<br />
+                                    198 00 Praha 9 - Hloubětín<br />
                                     Česká republika
                                 </a>
                             </address>

@@ -27,8 +27,10 @@
 }
 
 .footer__contact-title {
-    font-size: var(--text-heading-xl);
+    font-family: var(--font-heading);
+    font-size: var(--text-heading-2xl);
     font-weight: var(--font-weight-emphasis);
+    line-height: var(--line-height-heading);
 }
 
 .footer__contact-description,
@@ -40,7 +42,7 @@
 
 .footer__contact-description {
     margin-block-start: var(--space-100);
-    font-size: var(--font-size-300);
+    font-size: var(--text-lead);
 }
 
 .footer__contact-links {
@@ -67,13 +69,13 @@
     flex: 0 0 var(--footer-contact-icon-size);
     width: var(--footer-contact-icon-size);
     aspect-ratio: 1;
-    border-radius: var(--radius-100);
+    border-radius: var(--radius-card);
     background-color: var(--color-brand);
-    color: var(--color-white);
+    color: var(--color-text-inverse);
 }
 
 .footer__contact-icon-image {
-    width: var(--space-500);
+    width: var(--size-icon-md);
 }
 
 .footer__contact-details {
@@ -83,13 +85,13 @@
 }
 
 .footer__contact-value {
-    font-size: var(--font-size-300);
+    font-size: var(--text-lead);
     overflow-wrap: anywhere;
 }
 
 .footer__contact-note {
     font-family: var(--font-body);
-    font-size: var(--font-size-200);
+    font-size: var(--text-note);
     font-weight: var(--font-weight-body);
 }
 
@@ -113,8 +115,10 @@
 }
 
 .footer__link-title {
-    font-size: var(--font-size-400);
+    font-family: var(--font-heading);
+    font-size: var(--text-heading-xs);
     font-weight: var(--font-weight-emphasis);
+    line-height: var(--line-height-heading);
 }
 
 .footer__link-list {
@@ -125,11 +129,6 @@
 
 .footer__link {
     font-size: var(--text-body);
-}
-
-.footer__link,
-.footer__contact-link {
-    text-decoration: none;
 }
 
 .footer__link:hover,
@@ -143,7 +142,7 @@
     position: relative;
     overflow: hidden;
     border-radius: var(--radius-card);
-    color: var(--color-white);
+    color: var(--color-text-inverse);
 }
 
 .footer__location-image {
@@ -199,14 +198,15 @@
 
 .footer__location-name {
     font-family: var(--font-heading);
-    font-size: var(--font-size-500);
+    font-size: var(--text-heading-sm);
+    font-weight: var(--font-weight-strong);
     line-height: var(--line-height-heading);
 }
 
 .footer__location-hours,
 .footer__location-address {
-    font-size: var(--font-size-100);
-    line-height: var(--line-height-300);
+    font-size: var(--text-body);
+    line-height: var(--line-height-tight);
 }
 
 .footer__location-link {
@@ -246,21 +246,21 @@
 
 .footer__motto {
     font-family: var(--font-heading);
-    font-size: var(--font-size-600);
+    font-size: var(--text-heading-lg);
     font-weight: var(--font-weight-emphasis);
 }
 
 .footer__copyright {
-    font-size: var(--font-size-200);
+    font-size: var(--text-note);
 }
 
-@media (width >= 40rem) {
+@media (min-width: 40rem) {
     .footer {
         --footer-contact-icon-size: 4.1875rem; /* 67px */
     }
 
     .footer__contact-value {
-        font-size: var(--font-size-500);
+        font-size: var(--text-heading-sm);
     }
 
     .footer__links {
@@ -269,7 +269,7 @@
 
     .footer__location-overlay {
         gap: var(--space-500);
-        padding: var(--space-850);
+        padding: var(--space-900);
     }
 
     .footer__location-inner {
@@ -277,9 +277,9 @@
     }
 }
 
-@media (width >= 52rem) {
+@media (min-width: 52rem) {
     .footer__contact-inner {
-        column-gap: var(--space-900);
+        column-gap: var(--space-1000);
     }
 
     .footer__contact-links {
@@ -287,7 +287,7 @@
     }
 }
 
-@media (width >= 60rem) {
+@media (min-width: 60rem) {
     .footer__bottom-inner {
         grid-template-columns: auto auto auto;
         justify-content: space-between;
@@ -309,18 +309,18 @@
     }
 }
 
-@media (width >= 75rem) {
+@media (min-width: 75rem) {
     .footer__navigation-inner {
         grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
         align-items: center;
-        column-gap: var(--space-900);
-        padding-block: var(--space-850);
+        column-gap: var(--space-1000);
+        padding-block: var(--space-900);
     }
 }
 
-@media (width >= 100rem) {
+@media (min-width: 100rem) {
     .footer__location-overlay {
-        gap: var(--space-850);
+        gap: var(--space-900);
     }
 
     .footer__location-inner {

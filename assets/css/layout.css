@@ -1,8 +1,9 @@
 /* --------------------------------------------------------------------------
    LAYOUT
 -------------------------------------------------------------------------- */
+
 .container {
-    --container-width: var(--layout-max-width);
+    --container-width: var(--width-viewport-max);
     --container-gutter: var(--space-300); /* 15px */
 
     width: 100%;
@@ -12,7 +13,9 @@
 }
 
 .container--narrow {
-    --container-width: calc(var(--width-layout) + 2 * var(--container-gutter));
+    --container-width: calc(
+        var(--width-container) + 2 * var(--container-gutter)
+    );
 }
 
 /* Section ----------------------------------------- */

@@ -1,9 +1,25 @@
 /* --------------------------------------------------------------------------
    HIGHLIGHTS
 -------------------------------------------------------------------------- */
+.highlights {
+    --highlights-ratio-landscape: 366 / 288;
+    --highlights-ratio-portrait-sm: 366 / 440;
+    --highlights-ratio-portrait-md: 366 / 499;
+    --highlights-ratio-portrait-lg: 366 / 523;
+
+    --highlights-card-padding: clamp(
+        1.25rem,
+        0.75rem + 1vw,
+        1.875rem
+    ); /* 20 → 30px */
+    --highlights-wide-image-basis: 40%;
+}
+
 .highlights__title {
-    font-size: var(--text-heading-xl);
+    font-family: var(--font-heading);
+    font-size: var(--text-heading-2xl);
     font-weight: var(--font-weight-emphasis);
+    line-height: var(--line-height-heading);
     text-align: center;
 }
 
@@ -11,12 +27,6 @@
     display: grid;
     gap: var(--space-300);
     margin-block-start: var(--space-600);
-    grid-template-areas:
-        "c1"
-        "c2"
-        "c3"
-        "c4"
-        "c5";
 }
 
 .highlights__column {
@@ -24,26 +34,6 @@
     flex-direction: column;
     gap: var(--space-300);
     min-width: 0;
-}
-
-.highlights__column:nth-child(1) {
-    grid-area: c1;
-}
-
-.highlights__column:nth-child(2) {
-    grid-area: c2;
-}
-
-.highlights__column:nth-child(3) {
-    grid-area: c3;
-}
-
-.highlights__column:nth-child(4) {
-    grid-area: c4;
-}
-
-.highlights__column:nth-child(5) {
-    grid-area: c5;
 }
 
 .highlights__image-wrap {
@@ -54,7 +44,7 @@
 
 .highlights__image {
     width: 100%;
-    aspect-ratio: 366 / 288;
+    aspect-ratio: var(--highlights-ratio-landscape);
     object-fit: cover;
     transition: transform var(--transition-base);
 }
@@ -65,20 +55,23 @@
     flex-direction: column;
     justify-content: center;
     gap: var(--space-200);
-    padding: clamp(1.25rem, 0.75rem + 1vw, 1.875rem); /* 20-30px */
+    padding: var(--highlights-card-padding);
     border-radius: var(--radius-card);
     background-color: var(--color-brand);
-    color: var(--color-white);
+    color: var(--color-text-inverse);
     text-align: center;
 }
 
 .highlights__card-title {
-    font-size: clamp(1.625rem, 1.5625rem + 0.3125vw, 1.875rem); /* 26–30px */
+    font-family: var(--font-heading);
+    font-size: var(--text-heading-md);
+    font-weight: var(--font-weight-strong);
+    line-height: var(--line-height-heading);
     overflow-wrap: break-word;
 }
 
 .highlights__card-text {
-    font-size: clamp(1rem, 0.975rem + 0.125vw, 1.125rem); /* 16–18px */
+    font-size: var(--text-body);
 }
 
 .highlights__cta {
@@ -87,57 +80,53 @@
     margin-block-start: var(--space-600);
 }
 
-@media (width >= 40rem) {
+@media (min-width: 40rem) {
     .highlights__grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas:
-            "c1 c2"
-            "c3 c4"
-            "c5 c5";
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .highlights__column:nth-child(5) {
+    .highlights__column--wide {
+        grid-column: 1 / -1;
         flex-direction: row;
     }
 
-    .highlights__column:nth-child(5) .highlights__image-wrap {
-        flex: 0 0 40%;
+    .highlights__column--wide .highlights__image-wrap {
+        flex: 0 0 var(--highlights-wide-image-basis);
     }
 
-    .highlights__column:nth-child(5) .highlights__image {
-        width: 100%;
+    .highlights__column--wide .highlights__image {
         height: 100%;
     }
 }
 
-@media (width >= 75rem) {
+@media (min-width: 75rem) {
     .highlights__grid {
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-areas: "c1 c2 c3 c4 c5";
+        grid-template-columns: repeat(5, minmax(0, 1fr));
     }
 
-    .highlights__column:nth-child(5) {
+    .highlights__column--wide {
+        grid-column: auto;
         flex-direction: column;
     }
 
-    .highlights__column:nth-child(5) .highlights__image-wrap {
+    .highlights__column--wide .highlights__image-wrap {
         flex: none;
     }
 
-    .highlights__column:nth-child(5) .highlights__image {
+    .highlights__column--wide .highlights__image {
         height: auto;
     }
 
-    .highlights__image--downhill {
-        aspect-ratio: 366 / 523;
+    .highlights__image--portrait-sm {
+        aspect-ratio: var(--highlights-ratio-portrait-sm);
     }
 
-    .highlights__image--walking {
-        aspect-ratio: 366 / 499;
+    .highlights__image--portrait-md {
+        aspect-ratio: var(--highlights-ratio-portrait-md);
     }
 
-    .highlights__image--mountains {
-        aspect-ratio: 366 / 440;
+    .highlights__image--portrait-lg {
+        aspect-ratio: var(--highlights-ratio-portrait-lg);
     }
 }
 

@@ -10,8 +10,7 @@
 
     const OPEN_LABEL = "Zavřít menu";
     const CLOSED_LABEL = "Otevřít menu";
-    // Keep this breakpoint in sync with header.css.
-    const desktopQuery = window.matchMedia("(width >= 60rem)");
+    const desktopQuery = window.matchMedia("(min-width: 60rem)");
     const focusableSelector =
         'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
     const inertStates = new Map();
