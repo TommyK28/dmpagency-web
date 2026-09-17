@@ -10,6 +10,7 @@
     --color-grey-100: #f6f6f6;
     --color-grey-200: #e9e9e9;
     --color-grey-500: #818181;
+    --color-grey-600: #716b6b;
 
     /* --- Fonts -------------------------------------- */
     --font-family-poppins: "Poppins", Arial, Helvetica, system-ui, sans-serif;
@@ -72,6 +73,7 @@
     --line-height-200: 1.2;
     --line-height-300: 1.3;
     --line-height-400: 1.4;
+    --line-height-500: 1.9;
 
     /* --- Spacing ---------------------------------- */
     --space-100: 0.3125rem; /* 5px  */
@@ -93,6 +95,7 @@
 
     /* --- Radius ------------------------------------------ */
     --radius-100: 0.5rem; /* 8px */
+    --radius-200: 1.25rem; /* 20px */
     --radius-300: 3.25rem; /* 52px */
     --radius-full: 50%;
 
@@ -108,6 +111,7 @@
     --color-brand: var(--color-orange);
     --color-text: var(--color-black);
     --color-text-muted: var(--color-grey-500);
+    --color-text-subtle: var(--color-grey-600);
     --color-text-inverse: var(--color-white);
     --color-surface: var(--color-white);
     --color-surface-muted: var(--color-grey-100);
@@ -137,6 +141,7 @@
     --line-height-heading: var(--line-height-200);
     --line-height-tight: var(--line-height-300);
     --line-height-body: var(--line-height-400);
+    --line-height-loose: var(--line-height-500);
 
     /* --- Spacing ---------------------------------------- */
     --space-section-block: clamp(
@@ -151,6 +156,7 @@
 
     /* --- Radius ------------------------------------------ */
     --radius-card: var(--radius-100);
+    --radius-card-lg: var(--radius-200);
     --radius-pill: var(--radius-300);
     --radius-circle: var(--radius-full);
     --radius-focus: var(--radius-100);
